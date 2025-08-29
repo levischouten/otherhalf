@@ -1,0 +1,48 @@
+local M = {}
+
+M.dark = {
+	bg = "#282c34",
+	fg = "#dcdfe4",
+	red = "#e06c75",
+	green = "#98c379",
+	yellow = "#e5c07b",
+	blue = "#61afef",
+	magenta = "#c678dd",
+	cyan = "#56b6c2",
+	black = "#282c34",
+	white = "#dcdfe4",
+	br_black = "#5c6370",
+	br_red = "#e06c75",
+	br_green = "#98c379",
+	br_yellow = "#e5c07b",
+	br_blue = "#61afef",
+	br_magenta = "#c678dd",
+	br_cyan = "#56b6c2",
+	br_white = "#dcdfe4",
+	selection = "#3e4452",
+	gutter = "#6b7280",
+}
+
+M.light = {
+	bg = "#fafafa",
+	fg = "#383a42",
+	red = "#e45649",
+	green = "#50a14f",
+	yellow = "#c18401",
+	blue = "#4078f2",
+	magenta = "#a626a4",
+	cyan = "#0184bc",
+	black = "#383a42",
+	white = "#fafafa",
+	br_black = "#a0a1a7",
+	br_red = "#e45649",
+	br_green = "#50a14f",
+	br_yellow = "#c18401",
+	br_blue = "#4078f2",
+	br_magenta = "#a626a4",
+	br_cyan = "#0184bc",
+	br_white = "#fafafa",
+	selection = "#e5e5e6",
+	gutter = "#8892a5",
+}
+return M
