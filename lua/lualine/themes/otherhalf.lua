@@ -3,12 +3,13 @@ local otherhalf = require("otherhalf")
 
 local function get_palette()
 	local variant = "dark"
-	if otherhalf.opts then
-		if otherhalf.opts.variant == "auto" then
-			variant = vim.o.background == "light" and "light" or "dark"
-		else
-			variant = otherhalf.opts.variant
-		end
+	if otherhalf.opts and otherhalf.opts.variant == "auto" then
+		variant = vim.o.background == "light" and "light" or "dark"
+	elseif otherhalf.opts and otherhalf.opts.variant then
+		variant = otherhalf.opts.variant
+	else
+		-- Fallback: just check vim.o.background directly
+		variant = vim.o.background == "light" and "light" or "dark"
 	end
 	return variant == "light" and palettes.light or palettes.dark
 end
