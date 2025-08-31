@@ -20,24 +20,24 @@ local function create_theme()
 	local theme = {
 		normal = {
 			a = { fg = p.bg, bg = p.blue, gui = "bold" },
-			b = { fg = p.fg, bg = p.gutter },
+			b = { fg = p.fg, bg = p.selection },
 			c = { fg = p.fg, bg = p.bg },
 		},
 		insert = {
 			a = { fg = p.bg, bg = p.green, gui = "bold" },
-			b = { fg = p.fg, bg = p.gutter },
+			b = { fg = p.fg, bg = p.selection },
 		},
 		visual = {
 			a = { fg = p.bg, bg = p.magenta, gui = "bold" },
-			b = { fg = p.fg, bg = p.gutter },
+			b = { fg = p.fg, bg = p.selection },
 		},
 		replace = {
 			a = { fg = p.bg, bg = p.red, gui = "bold" },
-			b = { fg = p.fg, bg = p.gutter },
+			b = { fg = p.fg, bg = p.selection },
 		},
 		command = {
 			a = { fg = p.bg, bg = p.yellow, gui = "bold" },
-			b = { fg = p.fg, bg = p.gutter },
+			b = { fg = p.fg, bg = p.selection },
 		},
 		inactive = {
 			a = { fg = p.br_black, bg = p.bg },
