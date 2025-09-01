@@ -6,6 +6,9 @@ M.opts = {
 	variant = "auto", -- "auto" | "dark" | "light"
 	transparent = false,
 	italics = true,
+	integrations = {
+		neotree = { enabled = true },
+	},
 }
 
 function M.setup(opts)
@@ -45,7 +48,7 @@ function M.load()
 	local ok, lualine = pcall(require, "lualine")
 	if ok then
 		package.loaded["lualine.themes.otherhalf"] = nil
-		lualine.setup({options = {theme = 'otherhalf'}})
+		lualine.setup({ options = { theme = "otherhalf" } })
 	end
 end
 

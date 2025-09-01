@@ -90,69 +90,17 @@ function M.apply(p, opts)
 	hi("@type", { link = "Type" })
 	hi("@variable", { fg = p.fg })
 
-	-- Neo-tree
-	hi("NeoTreeDirectoryName", { fg = p.blue, bg = p.bg })
-	hi("NeoTreeDirectoryIcon", { fg = p.blue, bg = p.bg })
-	hi("NeoTreeFileName", { fg = p.fg, bg = p.bg })
-	hi("NeoTreeFileNameOpened", { fg = p.cyan, bg = p.bg })
-	hi("NeoTreeNormal", { fg = p.fg, bg = p.bg })
-	hi("NeoTreeNormalNC", { fg = p.fg, bg = p.bg })
-	hi("NeoTreeExpander", { fg = p.gutter, bg = p.bg })
-	hi("NeoTreeIndentMarker", { fg = p.gutter, bg = p.bg })
-	hi("NeoTreeRootName", { fg = p.blue, bold = true, bg = p.bg })
-	hi("NeoTreeSymbolicLinkTarget", { fg = p.magenta, bg = p.bg })
-	hi("NeoTreeModified", { fg = p.yellow, bg = p.bg })
-	hi("NeoTreeDimText", { fg = p.br_black, bg = p.bg })
-
-	-- Neo-tree Git
-	hi("NeoTreeGitAdded", { fg = p.green, bg = p.bg })
-	hi("NeoTreeGitConflict", { fg = p.red, bg = p.bg })
-	hi("NeoTreeGitDeleted", { fg = p.red, bg = p.bg })
-	hi("NeoTreeGitIgnored", { fg = p.gutter, bg = p.bg })
-	hi("NeoTreeGitModified", { fg = p.yellow, bg = p.bg })
-	hi("NeoTreeGitUnstaged", { fg = p.red, bg = p.bg })
-	hi("NeoTreeGitUntracked", { fg = p.magenta, bg = p.bg })
-	hi("NeoTreeGitStaged", { fg = p.green, bg = p.bg })
-
-	-- Neo-tree UI
-	hi("NeoTreeFloatBorder", { link = "FloatBorder" })
-	hi("NeoTreeTitleBar", { fg = p.bg, bg = p.blue })
-	hi("NeoTreeFilterTerm", { fg = p.green, bold = true })
-	hi("NeoTreeTabActive", { fg = p.blue, bg = p.selection, bold = true })
-	hi("NeoTreeTabInactive", { fg = p.gutter, bg = p.selection })
-	hi("NeoTreeTabSeparatorActive", { fg = p.blue, bg = p.bg })
-	hi("NeoTreeTabSeparatorInactive", { fg = p.selection, bg = p.selection })
-	hi("NeoTreeWinSeparator", { link = "WinSeparator" })
-	hi("NeoTreeCursorLine", { fg = p.fg, bg = p.selection })
-
-	-- FZF Lua
-	-- hi("FzfLuaNormal", { fg = p.fg, bg = opts.transparent and "NONE" or p.bg })
-	-- hi("FzfLuaBorder", { fg = p.gutter, bg = opts.transparent and "NONE" or p.bg })
-	-- hi("FzfLuaPreviewNormal", { fg = p.fg, bg = opts.transparent and "NONE" or p.bg })
-	-- hi("FzfLuaPreviewBorder", { fg = p.gutter, bg = opts.transparent and "NONE" or p.bg })
-	-- hi("FzfLuaTitle", { fg = p.blue, bg = opts.transparent and "NONE" or p.bg, bold = true })
-	-- hi("FzfLuaPreviewTitle", { fg = p.blue, bg = opts.transparent and "NONE" or p.bg, bold = true })
-	-- hi("FzfLuaCursor", { link = "Cursor" })
-	-- hi("FzfLuaCursorLine", { link = "CursorLine" })
-	-- hi("FzfLuaSearch", { link = "Search" })
-	--
-	hi("FzfLuaNormal", { link = "NormalFloat" })
-	hi("FzfLuaBorder", { link = "FloatBorder" })
-	hi("FzfLuaTitle", { link = "FloatTitle" })
-	hi("FzfLuaHeaderBind", { fg = p.yellow })
-	hi("FzfLuaHeaderText", { fg = p.magenta })
-	hi("FzfLuaDirPart", { link = "NonText" })
-	hi("FzfLuaFzfMatch", { fg = p.blue })
-	hi("FzfLuaFzfPrompt", { fg = p.blue })
-	hi("FzfLuaPathColNr", { fg = p.blue })
-	hi("FzfLuaPathLineNr", { fg = p.green })
-	hi("FzfLuaBufName", { fg = p.br_magenta })
-	hi("FzfLuaBufNr", { fg = p.yellow })
-	hi("FzfLuaBufFlagCur", { fg = p.magenta })
-	hi("FzfLuaBufFlagAlt", { fg = p.blue })
-	hi("FzfLuaTabTitle", { fg = p.sky })
-	hi("FzfLuaTabMarker", { fg = p.cyan })
-	hi("FzfLuaLiveSym", { fg = p.magenta })
+	-- Integrations
+	if opts.integrations then
+		for name, config in pairs(opts.integrations) do
+			if config.enabled then
+				local ok, integration = pcall(require, "otherhalf.integrations." .. name)
+				if ok and integration.apply then
+					integration.apply(hi, p, bg, opts)
+				end
+			end
+		end
+	end
 end
 
 return M
