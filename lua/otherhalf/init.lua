@@ -8,6 +8,7 @@ M.opts = {
 	italics = true,
 	integrations = {
 		neotree = { enabled = true },
+		render_markdown = { enabled = true },
 	},
 }
 
