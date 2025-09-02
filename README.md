@@ -1,4 +1,4 @@
-# OneHalf Neovim Theme
+# Otherhalf Neovim Theme
 
 A Neovim colorscheme based on the OneHalf terminal theme, with support for both light and dark variants.
 
@@ -13,9 +13,10 @@ A Neovim colorscheme based on the OneHalf terminal theme, with support for both 
 ## Installation
 
 ### Lazy.nvim
+
 ```lua
 {
-  "yourusername/otherhalf.nvim",
+  "levischouten/otherhalf",
   config = function()
     require("otherhalf").setup({
       variant = "auto", -- "auto" | "dark" | "light"
@@ -28,9 +29,10 @@ A Neovim colorscheme based on the OneHalf terminal theme, with support for both 
 ```
 
 ### Packer
+
 ```lua
 use {
-  "yourusername/otherhalf.nvim",
+  "levischouten/otherhalf",
   config = function()
     require("otherhalf").setup({
       variant = "auto", -- "auto" | "dark" | "light"
@@ -55,29 +57,11 @@ require("otherhalf").setup({
 ## Auto-theming
 
 When `variant = "auto"`, the theme will:
+
 - Automatically detect your system's light/dark mode via Neovim's `background` setting
 - Switch themes when you change `vim.o.background`
 - Work with terminal themes that set the background automatically
 
-## Manual Theme Switching
-
-```vim
-" Toggle between light and dark
-:lua require("otherhalf").toggle()
-
-" Or manually set background (when variant = "auto")
-:set background=light
-:set background=dark
-```
-
 ## Color Palette
-
-### Dark Variant
-- Background: `#282c34`
-- Foreground: `#dcdfe4`
-
-### Light Variant  
-- Background: `#fafafa`
-- Foreground: `#383a42`
 
 Both variants use the same OneHalf color palette for syntax highlighting, ensuring consistency across light and dark modes.
