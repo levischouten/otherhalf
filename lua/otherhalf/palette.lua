@@ -21,6 +21,7 @@ M.dark = {
 	br_white = "#dcdfe4",
 	selection = "#3e4452",
 	gutter = "#6b7280",
+	indent_scope = "#545861",
 }
 
 M.light = {
@@ -44,5 +45,6 @@ M.light = {
 	br_white = "#fafafa",
 	selection = "#e5e5e6",
 	gutter = "#8892a5",
+	indent_scope = "#d5d5d8",
 }
 return M

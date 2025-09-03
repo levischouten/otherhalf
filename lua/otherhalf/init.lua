@@ -9,6 +9,7 @@ M.opts = {
 	integrations = {
 		neotree = { enabled = true },
 		render_markdown = { enabled = true },
+		snacks = { enabled = true },
 	},
 }
 

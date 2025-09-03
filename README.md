@@ -7,7 +7,6 @@ A Neovim colorscheme based on the OneHalf terminal theme, with support for both 
 - **Auto-theming**: Automatically switches between light and dark mode based on Neovim's `background` setting
 - **Manual variants**: Choose between `light`, `dark`, or `auto` variants
 - **Transparency support**: Optional transparent background
-- **Neo-tree integration**: Properly styled file explorer with consistent backgrounds
 - **Modern syntax highlighting**: Full Treesitter support
 
 ## Installation
@@ -62,6 +61,6 @@ When `variant = "auto"`, the theme will:
 - Switch themes when you change `vim.o.background`
 - Work with terminal themes that set the background automatically
 
-## Color Palette
+## Integrations
 
-Both variants use the same OneHalf color palette for syntax highlighting, ensuring consistency across light and dark modes.
+This plugin includes a growing list of integrations for other plugins. Feel free to create an MR with an additional intergration as you see fit.
